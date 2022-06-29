@@ -13,12 +13,10 @@
   },
   "lint-staged": {
     "**/*.{vue,js,ts}": [
-      "npm run lint:script",
-      "git add ."
+      "eslint --fix"
     ],
     "**/*.{vue,css,scss}": [
-      "npm run lint:style",
-      "git add ."
+      "stylelint --cache --fix"
     ]
   },
   "dependencies": {
