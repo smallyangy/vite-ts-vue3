@@ -3,10 +3,23 @@
   "private": true,
   "version": "0.0.0",
   "scripts": {
+    "postinstall": "husky install",
     "dev": "vite",
     "build": "vue-tsc --noEmit && vite build",
     "preview": "vite preview",
-    "lint:script": "eslint --ext .js,.vue,.ts --fix --quiet ./src"
+    "lint:script": "eslint --ext .js,.vue,.ts --fix --quiet ./src",
+    "lint:style": "stylelint --fix \"src/**/*.{css,scss,vue}\"",
+    "lint": "npm run lint:script && npm run lint:style"
+  },
+  "lint-staged": {
+    "**/*.{vue,js,ts}": [
+      "npm run lint:script",
+      "git add ."
+    ],
+    "**/*.{vue,css,scss}": [
+      "npm run lint:style",
+      "git add ."
+    ]
   },
   "dependencies": {
     "vue": "^3.2.25"
@@ -21,6 +34,8 @@
     "cssnano": "^5.1.12",
     "eslint": "^8.18.0",
     "eslint-plugin-vue": "^9.1.1",
+    "husky": "^8.0.1",
+    "lint-staged": "^13.0.3",
     "postcss": "^8.4.14",
     "postcss-html": "^1.4.1",
     "sass": "^1.52.3",
