@@ -27,6 +27,7 @@ specifiers:
   vite: ^2.9.9
   vite-plugin-eslint: ^1.6.1
   vite-plugin-windicss: ^1.8.4
+  vite-svg-loader: ^3.4.0
   vue: ^3.2.25
   vue-eslint-parser: ^9.0.3
   vue-tsc: ^0.34.7
@@ -62,6 +63,7 @@ devDependencies:
   vite: 2.9.12_sass@1.52.3
   vite-plugin-eslint: 1.6.1_eslint@8.18.0+vite@2.9.12
   vite-plugin-windicss: 1.8.4_vite@2.9.12
+  vite-svg-loader: 3.4.0
   vue-eslint-parser: 9.0.3_eslint@8.18.0
   vue-tsc: 0.34.17_typescript@4.7.4
   windicss: 3.5.4
@@ -92,14 +94,9 @@ packages:
       '@babel/highlight': 7.18.6
     dev: true
 
-  /@babel/helper-validator-identifier/7.16.7:
-    resolution: {integrity: sha512-hsEnFemeiW4D08A5gUAZxLBTXpZ39P+a+DGDsHw1yxqyQ/jzFEnxf5uTEGp+3bzAbNOxU1paTgYS4ECU/IgfDw==}
-    engines: {node: '>=6.9.0'}
-
   /@babel/helper-validator-identifier/7.18.6:
     resolution: {integrity: sha512-MmetCkz9ej86nJQV+sFCxoGGrUbU3q02kgLciwkrt9QqEB7cP39oKEY0PakknEO0Gu20SskMRi+AYZ3b1TpN9g==}
     engines: {node: '>=6.9.0'}
-    dev: true
 
   /@babel/highlight/7.18.6:
     resolution: {integrity: sha512-u7stbOuYjaPezCuLj29hNW1v64M2Md2qupEKP1fHc7WdOA3DgLh37suiSrZYY7haUB7iBeQZ9P1uiRF359do3g==}
@@ -121,7 +118,7 @@ packages:
     resolution: {integrity: sha512-ThN1mBcMq5pG/Vm2IcBmPPfyPXbd8S02rS+OBIDENdufvqC7Z/jHPCv9IcP01277aKtDI8g/2XysBN4hA8niiw==}
     engines: {node: '>=6.9.0'}
     dependencies:
-      '@babel/helper-validator-identifier': 7.16.7
+      '@babel/helper-validator-identifier': 7.18.6
       to-fast-properties: 2.0.0
 
   /@commitlint/cli/17.0.3:
@@ -3745,6 +3742,13 @@ packages:
       windicss: 3.5.4
     transitivePeerDependencies:
       - supports-color
+    dev: true
+
+  /vite-svg-loader/3.4.0:
+    resolution: {integrity: sha512-xD3yb1FX+f4l9/TmsYIqyki8ncpcVsZ2gEJFh/wLuNNqt55C8OJ+JlcMWOA/Z9gRA+ylV/TA1wmJLxzZkCRqlA==}
+    dependencies:
+      '@vue/compiler-sfc': 3.2.37
+      svgo: 2.8.0
     dev: true
 
   /vite/2.9.12_sass@1.52.3:

@@ -14,29 +14,18 @@
     >
         Button
     </button>
-    <div
-        w="300px"
-        h="500px"
-        border="2px solid #ccc"
-        class="flex-c"
-    >
-        abc
-    </div>
-    <div class="a-1">
-        1
-    </div>
-    <div class="a-2">
-        2
-    </div>
-    <div class="a-3">
-        3
-    </div>
-    <div class="a-4">
-        4
-    </div>
 </template>
 
 <script setup lang="ts">
+    import init from '../../utils/wasm/fib.wasm';
+    import Worker from './example.js?worker';
+    // 1.初始化Worker实例
+    const worker = new Worker();
+    // 2.主线程监听worker的信息
+    // worker.addEventListener('message', (e) => {
+    //     console.log(e);
+    // });
+
     const props = defineProps({
         title: {
             type: String,
@@ -44,26 +33,16 @@
         }
     });
     const a = 12;
+
+    type FibFunc = (num: number) => number;
+
+    init({}).then(exports => {
+        const fibFunc = exports.fib as FibFunc;
+        console.log('Fib result: ', fibFunc(10));
+    });
+    // console.log(import.meta.env)
+    // console.log(import.meta.env)
 </script>
 
 <style lang="scss">
-    .a-1 {
-        font-size: 20px;
-        color: red;
-    }
-
-    .a-2 {
-        font-size: 20px;
-        color: black;
-    }
-
-    .a-3 {
-        font-size: 20px;
-        color: white;
-    }
-
-    .a-4 {
-        font-size: 20px;
-        color: orange;
-    }
 </style>
