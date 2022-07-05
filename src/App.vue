@@ -4,10 +4,14 @@
         Hello
     </div>
     <!-- 方式一 -->
-    <img src="@assets/share-img.png">
+    <!-- <img src="@assets/share-img.png">
     <div class="share-img" />
     <img :src="shareImg">
     <circleImg />
+    <img
+        src="@assets/test.png"
+        alt=""
+    > -->
 </template>
 
 <script setup lang="ts">

@@ -19,6 +19,11 @@
       "stylelint --cache --fix"
     ]
   },
+  "pnpm": {
+    "overrides": {
+      "bin-wrapper": "npm:bin-wrapper-china"
+    }
+  },
   "dependencies": {
     "vue": "^3.2.25"
   },
@@ -48,6 +53,7 @@
     "typescript": "^4.5.4",
     "vite": "^2.9.9",
     "vite-plugin-eslint": "^1.6.1",
+    "vite-plugin-imagemin": "^0.6.1",
     "vite-plugin-windicss": "^1.8.4",
     "vite-svg-loader": "^3.4.0",
     "vue-eslint-parser": "^9.0.3",

@@ -10,6 +10,7 @@ import cssnano from 'cssnano'; // css压缩
 import viteEslint from 'vite-plugin-eslint';
 import viteStylelint from '@amatlash/vite-plugin-stylelint';
 import svgLoader from 'vite-svg-loader';
+import viteImagemin from 'vite-plugin-imagemin';
 
 // 全局scss文件的路径
 // 用normalizePath解决路径问题
@@ -53,6 +54,24 @@ export default defineConfig(({command, mode}) => {
             viteStylelint({
                 // 对某些文件排除
                 exclude: /windicss|node_modules/
+            }),
+            // 图片压缩
+            viteImagemin({
+                // 无损压缩配置，无损压缩下图片质量不会变差
+                optipng: {
+                    optimizationLevel: 7
+                },
+                // 有损压缩配置，有损压缩下图片质量可能会变差
+                pngquant: {
+                    quality: [0.6, 0.8],
+                },
+                // svg优化
+                svgo: {
+                    plugins: [
+                        { name: 'removeViewBox' },
+                        { name: 'removeEmptyAttrs', active: false }
+                    ]
+                }
             }),
         ],
         // css 相关配置

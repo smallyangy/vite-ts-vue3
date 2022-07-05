@@ -1,5 +1,14 @@
 <template>
     <div
+        v-for="(item, index) in iconUrls"
+        :key="index"
+    >
+        <img
+            :src="item"
+            alt=""
+        >
+    </div>
+    <!-- <div
         p="y-2 x-4"
         border="2 rounded blue-200"
     >
@@ -13,10 +22,11 @@
         border="2 rounded blue-200"
     >
         Button
-    </button>
+    </button> -->
 </template>
 
 <script setup lang="ts">
+    import { reactive } from 'vue';
     import init from '../../utils/wasm/fib.wasm';
     import Worker from './example.js?worker';
     // 1.初始化Worker实例
@@ -25,6 +35,13 @@
     // worker.addEventListener('message', (e) => {
     //     console.log(e);
     // });
+
+    const icons = import.meta.globEager('../../assets/logo*.svg');
+
+    console.log(icons)
+
+    const iconUrls = reactive(Object.keys(icons));
+
 
     const props = defineProps({
         title: {
