@@ -11,6 +11,7 @@ import viteEslint from 'vite-plugin-eslint';
 import viteStylelint from '@amatlash/vite-plugin-stylelint';
 import svgLoader from 'vite-svg-loader';
 import viteImagemin from 'vite-plugin-imagemin';
+import { createSvgIconsPlugin } from 'vite-plugin-svg-icons';
 
 // 全局scss文件的路径
 // 用normalizePath解决路径问题
@@ -73,6 +74,10 @@ export default defineConfig(({command, mode}) => {
                     ]
                 }
             }),
+            // svg雪碧图
+            createSvgIconsPlugin({
+                iconDirs: [ path.join(__dirname, 'src/assets/icons') ]
+            })
         ],
         // css 相关配置
         css: {

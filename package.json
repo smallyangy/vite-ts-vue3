@@ -7,7 +7,7 @@
     "dev": "vite --mode development",
     "build": "vue-tsc --noEmit && vite build",
     "preview": "vite preview",
-    "lint:script": "eslint --ext .js,.vue,.ts --fix --quiet ./src",
+    "lint:script": "eslint --ext .js,.vue,.ts,.json --fix --quiet ./src",
     "lint:style": "stylelint --fix \"src/**/*.{css,scss,vue}\"",
     "lint": "npm run lint:script && npm run lint:style"
   },
@@ -54,6 +54,7 @@
     "vite": "^2.9.9",
     "vite-plugin-eslint": "^1.6.1",
     "vite-plugin-imagemin": "^0.6.1",
+    "vite-plugin-svg-icons": "^2.0.1",
     "vite-plugin-windicss": "^1.8.4",
     "vite-svg-loader": "^3.4.0",
     "vue-eslint-parser": "^9.0.3",
